@@ -1,0 +1,46 @@
+--- main menu
+S> Do you want to know the temperature or know the weather?
+
+--- ask temperature (incremental)
+U> what is the temperature
+S> What city?
+U> London
+S> What country?
+U> UK
+S> The temperature is *
+
+--- ask temperature (over-answering)
+U> what is the temperature in London
+S> What country?
+U> UK
+S> The temperature is *
+
+--- ask temperature (one-shot)
+U> what is the temperature in London UK
+S> The temperature is *
+
+--- ask temperature (units)
+U> what is the temperature in fahrenheit
+S> What city?
+U> London
+S> What country?
+U> UK
+S> The temperature is *
+
+--- ask weather (incremental)
+U> what is the weather
+S> What city?
+U> London
+S> What country?
+U> UK
+S> The weather is *
+
+--- ask weather (over-answering)
+U> what is the weather in London
+S> What country?
+U> UK
+S> The weather is *
+
+--- ask weather (one-shot)
+U> what is the weather in London UK
+S> The weather is *
