@@ -16,7 +16,7 @@ U> UK
 S> The temperature is *
 
 --- ask temperature (one-shot)
-U> what is the temperature in London UK
+U> what is the temperature in Helsinki Finland
 S> The temperature is *
 
 --- ask temperature (units)
@@ -42,5 +42,23 @@ U> UK
 S> The weather is *
 
 --- ask weather (one-shot)
-U> what is the weather in London UK
+U> what is the weather in London United Kingdom
+S> The weather is *
+
+--- ask weather (polite)
+U> tell me the weather in Gothenburg please
+S> What country?
+U> Sweden
+S> The weather is *
+
+--- ask temperature (um)
+U> what is the um temperature in Oslo Norway
+S> The temperature is *
+
+--- ask weather (typos)
+U> wat is the wether
+S> What city?
+U> Tallinn
+S> What country?
+U> Estonia
 S> The weather is *

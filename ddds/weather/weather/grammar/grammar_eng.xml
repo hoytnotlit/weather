@@ -22,13 +22,42 @@
   </action>
 
   <individual name="city_london">London</individual>
+  <individual name="city_helsinki">Helsinki</individual>
+  <individual name="city_gbg">Gothenburg</individual>
+  <individual name="city_tallinn">Tallinn</individual>
+  <individual name="city_oslo">Oslo</individual>
+
   <individual name="country_uk">
     <one-of>
       <item>United Kingdom</item>
+      <item>uk</item>
       <item>UK</item>
     </one-of>
   </individual>
-  <individual name="unit_fahrenheit">fahrenheit</individual>
+  <individual name="country_fi">Finland</individual>
+  <individual name="country_se">Sweden</individual>
+  <individual name="country_est">Estonia</individual>
+  <individual name="country_no">Norway</individual>
+
+
+  <individual name="unit_imperial">
+    <one-of>
+      <item>fahrenheit</item>
+      <item>imperial</item>
+    </one-of>
+  </individual>
+  <individual name="unit_standard">
+    <one-of>
+      <item>kelvin</item>
+      <item>standard</item>
+    </one-of>
+  </individual>
+  <individual name="unit_metric">
+    <one-of>
+      <item>celcius</item>
+      <item>metric</item>
+    </one-of>
+  </individual>
 
 
   <answer speaker="system" predicate="temperature">
@@ -44,22 +73,40 @@
   <question speaker="user" predicate="temperature" type="wh_question">
     <one-of>
       <item>What is the temperature</item>
+      <item>What is the temperature like</item>
+      <item>How warm is it today</item>
+      <item>How cold is it today</item>
+      <item>How many degrees is it</item>
+      <item>How is the temperature today</item>
+      <item>Is it cold today</item>
+      <item>Is it warm today</item>
+      <item>What temperature is it</item>
+      <item>Tell me the temperature</item>
       <item>What is the temperature in <slot predicate="city_to_search"/></item>
       <item>What is the temperature in <slot predicate="city_to_search"/> <slot predicate="country_to_search"/></item>
-      <item>What is the temperature <slot predicate="unit"/></item>
-    </one-of>
-  </question>
-  <question speaker="user" predicate="weather" type="wh_question">
-    <one-of>
-      <item>What is the weather</item>
-      <item>What is the weather in <slot predicate="city_to_search"/></item>
-      <item>What is the weather in <slot predicate="city_to_search"/> <slot predicate="country_to_search"/></item>
-    </one-of>
-  </question>
-  <question speaker="system" predicate="city_to_search" type="wh_question">
+      <item>What is the temperature in <slot predicate="unit_to_search"/></item>
+  </one-of>
+</question>
+<question speaker="user" predicate="weather" type="wh_question">
+  <one-of>
+    <item>What is the weather</item>
+    <item>What is the weather now</item>
+    <item>What is the weather like</item>
+    <item>What is the weather like today</item>
+    <item>How is the weather</item>
+    <item>What weather is it</item>
+    <item>Tell me the weather</item>
+    <item>Is it cloudy</item>
+    <item>Is it sunny</item>
+    <item>Is it windy</item>
+    <item>What is the weather in <slot predicate="city_to_search"/></item>
+    <item>What is the weather in <slot predicate="city_to_search"/><slot predicate="country_to_search"/></item>
+</one-of>
+</question>
+<question speaker="system" predicate="city_to_search" type="wh_question">
     what city
-  </question>
-  <question speaker="system" predicate="country_to_search" type="wh_question">
+</question>
+<question speaker="system" predicate="country_to_search" type="wh_question">
     what country
-  </question>
+</question>
 </grammar>

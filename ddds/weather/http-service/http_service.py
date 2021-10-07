@@ -180,7 +180,6 @@ def get_data(city, country, unit="metric"):
     key = "6e1b86f2f648d99768273a54879e516c"
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city},{country}&units={unit}&APPID={key}"
     print(url)
-    # TODO replace the whitespaces of city and country coming into the http_service with "%20"
     request = Request(url)
     response = urlopen(request)
     data = response.read()
@@ -192,10 +191,8 @@ def temperature():
     payload = request.get_json()
     city = payload["context"]["facts"]["city_to_search"]["grammar_entry"]
     country = payload["context"]["facts"]["country_to_search"]["grammar_entry"]
-    unit = payload["context"]["facts"]["unit"]["value"]
-    print(unit)
-    # TODO unit
-    data = get_data(city, country)
+    unit = payload["context"]["facts"]["unit_to_search"]["grammar_entry"] if "unit_to_search" in payload["context"]["facts"] else "metric"
+    data = get_data(city, country, unit)
     temp = data['main']['temp']
     tempstr = str(temp)
     return query_response(value=tempstr, grammar_entry=None)
@@ -207,6 +204,6 @@ def weather():
     city = payload["context"]["facts"]["city_to_search"]["grammar_entry"]
     country = payload["context"]["facts"]["country_to_search"]["grammar_entry"]
     data = get_data(city, country)
-    weather = data['weather'][0]['description'] # TODO loop?
+    weather = data['weather'][0]['description']
     tempstr = str(weather)
     return query_response(value=tempstr, grammar_entry=None)
